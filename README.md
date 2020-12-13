@@ -1,2 +1,2 @@
 # SMIL
-# Code comming soon.
+Code comming soon.
