@@ -1,4 +1,5 @@
 # SMIL: Multimodal Learning with Severely Missing Modality
+<<<<<<< HEAD
 
 Pytorch implementation of [SMIL: Multimodal Learning with Severely Missing Modality](https://arxiv.org/pdf/2103.05677.pdf) by Mengmeng Ma and Xi Peng.
 
@@ -46,3 +47,6 @@ If you find our code useful in your research, please consider citing:
 }
 ```
 
+=======
+Code coming soon.
+>>>>>>> fe24b0a793e406a93505d96b73104719cafcccdf
