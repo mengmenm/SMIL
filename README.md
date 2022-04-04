@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ## Training
 
-Train Model-specific Baselines
+Train modal-specific baselines
 
 ```bash
 bash run_experiment.sh
