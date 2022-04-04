@@ -24,7 +24,7 @@ pip install -r requirements.txt
 Train Model-specific Baselines
 
 ```bash
-bash run_baselines.sh
+bash run_experiment.sh
 ```
 
 To do
