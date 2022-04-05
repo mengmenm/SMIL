@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 #### [AV-MNIST](https://arxiv.org/abs/1808.07275) dataset
 
-- Download the data [here](https://drive.google.com/file/d/17Z32hxN7zntYYlV51lZBTpn4_MwpC14d/view?usp=sharing) and extracted it to /data
+- Download the data [here](https://drive.google.com/file/d/1JTS--8d_BxzZfhQfSAAYeYTjCdUbJyuD/view?usp=sharing) and extracted it to /data
 
 ## Training
 
