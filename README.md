@@ -28,7 +28,7 @@ bash run_experiment.sh
 
 To do
 
-- [ ] Training with missing modality (by April 10)
+- [ ] Training with missing modality
 
 ## Citation
 
