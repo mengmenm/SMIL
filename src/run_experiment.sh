@@ -43,9 +43,10 @@ experiment(){
 		done		
 	done
 
-	# echo $max_sound
-	# echo $best_sound_path
-	# echo $best_sound_name
+	echo $max_sound
+	echo $best_sound_path
+	echo $best_sound_name
+
 	printf "\n==> done train_sound !!!\n"
 
 	printf "\n==> start train_soundmnist !!!\n"
@@ -73,15 +74,17 @@ experiment(){
     		fi
 		done		
 	done
-	# echo $max_soundmnist
-	# echo $best_soundmnist_path
-	# echo $best_soundmnist_name
+
+	echo $max_soundmnist
+	echo $best_soundmnist_path
+	echo $best_soundmnist_name
+
 	printf "\n==> done train_soundmnist !!!\n"
 
 	printf "\n==> start sound_mean !!!\n"
 	printf "\n==========> get_sound_mean\n" >> experiment-$vis_device:per-class-num-$per_class_num.txt      
 	# get sound_mean
-	python get_sound_mean_pca.py \
+	python get_sound_mean_kmean.py \
 		--checkpoint $sound_mean_save_path \
 		--per_class_num $per_class_num \
 		--vis_device $vis_device \
@@ -89,6 +92,25 @@ experiment(){
 		--soundmnist_model_name $best_soundmnist_name >> experiment-$vis_device:per-class-num-$per_class_num.txt      
 
 	printf "\n==> done sound_mean !!!\n"
+
+	printf "==> star training with missing modality\n"
+	printf "\n==> star training with missing modality\n" >> experiment-$vis_device:per-class-num-$per_class_num.txt   
+	#metadropout train
+	python metadropout_train_new.py \
+		--checkpoint $metadropout_save_path \
+		--per_class_num $per_class_num \
+		--sound_mean_path $sound_mean_save_path \
+		--sound_mean_name $sound_mean_name \
+		--batch_size $batch_size \
+		--vis_device $vis_device \
+		--soundmnist_model_path $best_soundmnist_path \
+		--soundmnist_model_name $best_soundmnist_name >> experiment-$vis_device:per-class-num-$per_class_num.txt   
+	
+	printf "==> end training with missing modality\n"
+	printf "\n==> end training with missing modality\n" >> experiment-$vis_device:per-class-num-$per_class_num.txt   
+
+	printf "==========> end experiment $per_class_num: %(%Y-%m-%d %H:%M:%S)T <==========\n" >> experiment-$vis_device:per-class-num-$per_class_num.txt    
+	printf "==========> end experiment $per_class_num: %(%Y-%m-%d %H:%M:%S)T <==========\n"
 
 }
 
@@ -98,5 +120,3 @@ run (){
 
 run 15 ./save/sound/450/new/15 ./save/soundmnist/new/15 ./save/sound_mean/new/ sound_mean_150.npy ./save/metadrop/feature/new/15 ./save/finetune/15 64 0
 # run 21 ./save/sound/450/new/21 ./save/soundmnist/new/21 ./save/sound_mean/new/ sound_mean_210.npy ./save/metadrop/feature/new/21 ./save/finetune/21 64 0
-
-
