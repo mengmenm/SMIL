@@ -95,8 +95,8 @@ experiment(){
 
 	printf "==> star training with missing modality\n"
 	printf "\n==> star training with missing modality\n" >> experiment-$vis_device:per-class-num-$per_class_num.txt   
-	#metadropout train
-	python metadropout_train_new.py \
+	
+	python train_missing_eval_missing.py \
 		--checkpoint $metadropout_save_path \
 		--per_class_num $per_class_num \
 		--sound_mean_path $sound_mean_save_path \
@@ -119,4 +119,3 @@ run (){
 }
 
 run 15 ./save/sound/450/new/15 ./save/soundmnist/new/15 ./save/sound_mean/new/ sound_mean_150.npy ./save/metadrop/feature/new/15 ./save/finetune/15 64 0
-# run 21 ./save/sound/450/new/21 ./save/soundmnist/new/21 ./save/sound_mean/new/ sound_mean_210.npy ./save/metadrop/feature/new/21 ./save/finetune/21 64 0
