@@ -100,18 +100,12 @@ def train(train_loader, model, sound_mean,device):
 
     torch.set_grad_enabled(False)
     model.eval()
-    tic = time.time()
-    # thresholds = 0.6 
-    for i, batch in enumerate(train_loader):
-        # print(i + 1)
-        # step += 1 
 
+    for i, batch in enumerate(train_loader):
         images = batch[0].to(device)
         sounds = batch[1].to(device)
         labels = batch[2].to(device)
-        # print(labels.squeeze())
         
-        # Forward pass
         outputs, feature = model(images, sound=sounds, mode='two')
         sound_mean = torch.cat([sound_mean, feature], dim=0)
 
