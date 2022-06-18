@@ -43,9 +43,9 @@ experiment(){
 		done		
 	done
 
-	echo $max_sound
-	echo $best_sound_path
-	echo $best_sound_name
+	# echo $max_sound
+	# echo $best_sound_path
+	# echo $best_sound_name
 
 	printf "\n==> done train_sound !!!\n"
 
@@ -75,9 +75,9 @@ experiment(){
 		done		
 	done
 
-	echo $max_soundmnist
-	echo $best_soundmnist_path
-	echo $best_soundmnist_name
+	# echo $max_soundmnist
+	# echo $best_soundmnist_path
+	# echo $best_soundmnist_name
 
 	printf "\n==> done train_soundmnist !!!\n"
 
